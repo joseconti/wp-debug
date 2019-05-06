@@ -8,13 +8,13 @@ function wpdebug_add_notice() {
 
 	$screen        = get_current_screen();
 	$notice_status = get_option( 'hide-wpdebug-notice' );
-	
+
 	if ( 'yes' !== $notice_status ) {
-		if ( 'plugins' === $screen->id ||  'toplevel_page_wp_debug' === $screen->id ) {
-			if ( $_REQUEST['wpdebug-hide-notice'] &&  'hide-notice-wpdebug' === $_REQUEST['wpdebug-hide-notice'] ) {
+		if ( 'plugins' === $screen->id || 'toplevel_page_wp_debug' === $screen->id ) {
+			if ( isset( $_REQUEST['wpdebug-hide-notice'] ) && 'hide-notice-wpdebug' === $_REQUEST['wpdebug-hide-notice'] ) {
 				$nonce = sanitize_text_field( $_REQUEST['_wpdebug_notice_nonce'] );
 				if ( wp_verify_nonce( $nonce, 'wpdebug_hide_notices_nonce' ) ) {
-					update_option( 'hide-wpdebug-notice', 'yes');
+					update_option( 'hide-wpdebug-notice', 'yes' );
 				}
 			} else {
 				?>
@@ -24,10 +24,10 @@ function wpdebug_add_notice() {
 						<?php esc_html_e( 'WP Debug is now installed. It\'s almost ready.', 'wp-debug' ); ?>
 					</p>
 					<p>
-						<a href="<?php echo admin_url( 'admin.php?page=wp_debug' ); ?>" class="button button-primary"><?php esc_html_e( 'Go to WP Debug Settings', 'wp-debug' ); ?></a>
+						<a href="<?php echo esc_html( admin_url( 'admin.php?page=wp_debug' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Go to WP Debug Settings', 'wp-debug' ); ?></a>
 					</p>
 				</div>
-			<?php
+				<?php
 			}
 		}
 	}
@@ -35,12 +35,12 @@ function wpdebug_add_notice() {
 add_action( 'admin_notices', 'wpdebug_add_notice' );
 
 function wpdebug_notice_style() {
-	
+
 	$screen        = get_current_screen();
 	$notice_status = get_option( 'hide-wpdebug-notice' );
-	
+
 	if ( 'yes' !== $notice_status ) {
-		if ( 'plugins' === $screen->id ||  'toplevel_page_wp_debug' === $screen->id ) {
+		if ( 'plugins' === $screen->id || 'toplevel_page_wp_debug' === $screen->id ) {
 			wp_register_style( 'wpdebug_notice_css', WPDEBUG_PLUGIN_URL . 'assets/css/wpdebug-notice.css', false, WPDEBUG_VERSION );
 			wp_enqueue_style( 'wpdebug_notice_css' );
 		}

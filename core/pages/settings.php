@@ -4,5 +4,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function wpdebug_settings_page() {
-    echo '<h1>' . esc_html__( 'settings', 'wp-debug' ) . '</h1>';
+	echo '<h1>' . esc_html__( 'settings', 'wp-debug' ) . '</h1>';
 }

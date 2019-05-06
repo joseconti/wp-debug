@@ -10,6 +10,6 @@ $options = array(
 	'hide-wpdebug-notice',
 );
 
-foreach ( $options as $option ){
+foreach ( $options as $option ) {
 	delete_option( $option );
 }

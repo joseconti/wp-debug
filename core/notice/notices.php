@@ -35,7 +35,15 @@ function wpdebug_add_notice() {
 add_action( 'admin_notices', 'wpdebug_add_notice' );
 
 function wpdebug_notice_style() {
-	wp_register_style( 'wpdebug_notice_css', WPDEBUG_PLUGIN_URL . 'assets/css/wpdebug-notice.css', false, WPDEBUG_VERSION );
-	wp_enqueue_style( 'wpdebug_notice_css' );
+	
+	$screen        = get_current_screen();
+	$notice_status = get_option( 'hide-wpdebug-notice' );
+	
+	if ( 'yes' !== $notice_status ) {
+		if ( 'plugins' === $screen->id ||  'toplevel_page_wp_debug' === $screen->id ) {
+			wp_register_style( 'wpdebug_notice_css', WPDEBUG_PLUGIN_URL . 'assets/css/wpdebug-notice.css', false, WPDEBUG_VERSION );
+			wp_enqueue_style( 'wpdebug_notice_css' );
+		}
+	}
 }
 add_action( 'admin_enqueue_scripts', 'wpdebug_notice_style' );

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WordPress debug\n"
-"POT-Creation-Date: 2019-05-06 14:28+0200\n"
-"PO-Revision-Date: 2019-05-06 14:28+0200\n"
+"POT-Creation-Date: 2019-05-07 00:42+0200\n"
+"PO-Revision-Date: 2019-05-07 00:43+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -16,22 +16,26 @@ msgstr ""
 "X-Poedit-WPHeader: wp-debug.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: core/menu/menu.php:11
+#: core/menu/menu.php:14 core/pages/about.php:13
 msgid "WP Debug"
-msgstr "Debug WP"
+msgstr "WP Debug"
 
-#: core/menu/menu.php:21
+#: core/menu/menu.php:24
 msgid "Settings"
 msgstr "Configuraciones"
 
-#: core/menu/menu.php:22
+#: core/menu/menu.php:25
 msgid "List Menu"
 msgstr "Listar menú"
+
+#: core/menu/menu.php:26
+msgid "About"
+msgstr "Sobre"
 
 #: core/notice/notices.php:22
 msgid "Dismiss"
@@ -41,19 +45,70 @@ msgstr "Descartar"
 msgid "WP Debug is now installed. It's almost ready."
 msgstr "WP Debug ya está instalado. Está casi listo."
 
-#: core/notice/notices.php:27
+#: core/notice/notices.php:27 core/pages/about.php:19
 msgid "Go to WP Debug Settings"
 msgstr "Ir a la configuración de WP Debug"
+
+#: core/pages/about.php:9
+#, php-format
+msgid "Welcome to WP Debug %s"
+msgstr "Bienvenido a WP Debug %s"
+
+#: core/pages/about.php:10
+#, php-format
+msgid "Thank you for install WP Debug %s!"
+msgstr "Gracias por instalar WP Debug %s!"
+
+#: core/pages/about.php:11
+#, php-format
+msgid "Version %s"
+msgstr "Versión %s"
+
+#: core/pages/about.php:15
+msgid "WP Debug is cool"
+msgstr "WP Debug mola"
+
+#: core/pages/about.php:16
+msgid ""
+"Did you know that to develop for WordPress you need to know things you can't "
+"see with the naked eye?"
+msgstr ""
+"¿Sabías que para desarrollar para WordPress necesitas saber cosas que no "
+"puedes ver a simple vista?"
+
+#: core/pages/about.php:17
+msgid ""
+"WP Debug helps you see what you can't normally see, and what is essential to "
+"develop."
+msgstr ""
+"WP Debug te ayuda a ver lo que normalmente no puede ver, y lo que es "
+"esencial para desarrollar."
 
 #: core/pages/estructura-menu.php:7
 msgid "Menu Structure"
 msgstr "Estructura del menú"
 
-#: core/pages/settings.php:7
-msgid "settings"
-msgstr "Configuraciones"
+#: core/pages/setting-options/main-settings.php:8
+msgid "Activate Page Menu bar"
+msgstr "Activar Pagina en la barra de menú"
 
-#: wp-debug.php:39
+#: core/pages/setting-options/main-settings.php:14
+msgid "Show Screen in Menubar"
+msgstr "Mostrar pantalla en barra de menús"
+
+#: core/pages/settings.php:8
+msgid "WP Debug Settings"
+msgstr "Configuración de WP Debug"
+
+#: core/pages/settings.php:17
+msgid "Main Settings"
+msgstr "Configuraciones principales"
+
+#: core/pages/settings.php:18
+msgid "Advanced Settings"
+msgstr "Configuraciones avanzadas"
+
+#: wp-debug.php:43
 msgid "Screen: "
 msgstr "Pantalla: "
 
@@ -73,3 +128,6 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "José Conti"
 msgstr "José Conti"
+
+#~ msgid "settings"
+#~ msgstr "Configuraciones"

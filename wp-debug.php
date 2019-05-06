@@ -32,14 +32,18 @@ require_once WPDEBUG_PLUGIN_PATH . 'core/notice/notices.php';
 function wp_debug_add_current_screen_to_admin_bar() {
 	global $wp_admin_bar;
 
-	$screen = get_current_screen();
-	$wp_admin_bar->add_menu(
-		array(
-			'id'     => 'wp-debug-add-current-screen-to-admin-bar',
-			'parent' => 'top-secondary',
-			'title'  => esc_html__( 'Screen: ', 'wp-debug' ) . $screen->id,
-		)
-	);
+	$screen    = get_current_screen();
+	$activated = get_option( 'wpdebug_activate_page_menubar_field' );
+
+	if ( $activated && '1' === $activated ) {
+		$wp_admin_bar->add_menu(
+			array(
+				'id'     => 'wp-debug-add-current-screen-to-admin-bar',
+				'parent' => 'top-secondary',
+				'title'  => esc_html__( 'Screen: ', 'wp-debug' ) . $screen->id,
+			)
+		);
+	}
 }
 add_action( 'admin_bar_menu', 'wp_debug_add_current_screen_to_admin_bar' );
 
@@ -64,3 +68,15 @@ function wp_debug_welcome_splash() {
 	}
 }
 add_action( 'admin_init', 'wp_debug_welcome_splash', 1 );
+
+function wp_debug_about_styles_css( $hook ) {
+	global $wpdebugabout;
+
+	if ( $wpdebugabout !== $hook ) {
+		return;
+	} else {
+		wp_register_style( 'wpdebugAboutCSS', WPDEBUG_PLUGIN_URL . 'assets/css/wpdebug-about.css', array(), esc_html( WPDEBUG_VERSION ) );
+		wp_enqueue_style( 'wpdebugAboutCSS' );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'wp_debug_about_styles_css' );

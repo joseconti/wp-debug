@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function wpdebug_add_notice() {
-
+	
 	$screen        = get_current_screen();
 	$notice_status = get_option( 'hide-wpdebug-notice' );
 
@@ -24,7 +24,7 @@ function wpdebug_add_notice() {
 						<?php esc_html_e( 'WP Debug is now installed. It\'s almost ready.', 'wp-debug' ); ?>
 					</p>
 					<p>
-						<a href="<?php echo esc_html( admin_url( 'admin.php?page=wp_debug' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Go to WP Debug Settings', 'wp-debug' ); ?></a>
+						<a href="<?php echo esc_url( admin_url( 'admin.php?page=wp_debug' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Go to WP Debug Settings', 'wp-debug' ); ?></a>
 					</p>
 				</div>
 				<?php

@@ -7,8 +7,13 @@ Version: 0.0.1
 Author: José Conti
 Author URI: https://www.joseconti.com/
 Tested up to: 5.1
+WC requires at least: 3.0
+WC tested up to: 3.6
+Woo: XXXXXXXXXXXXXXXXXXXXXXXXX
 Text Domain: wp-debug
 Domain Path: /languages/
+Network: true
+Requires PHP: 5.6.0
 Copyright: (C) 2019 José Conti
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

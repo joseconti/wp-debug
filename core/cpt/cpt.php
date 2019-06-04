@@ -146,3 +146,15 @@ function wp_debug_anadimos_actions_handler( $redirect_to, $doaction, $post_ids )
 		return $redirect_to;
 	}
 }
+
+/******************************************************/
+/*** Para hacer un metabox compatible con Gutenberg ***/
+/*****************************************************/
+
+/*
+add_meta_box( 'my-meta-box', 'My Meta Box', 'my_meta_box_callback', null, 'side', 'high',
+	array(
+		'__back_compat_meta_box' => true,
+		)
+	);
+*/

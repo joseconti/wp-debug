@@ -9,7 +9,7 @@ require_once WPDEBUG_PLUGIN_PATH . 'core/pages/settings.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/pages/about.php';
 
 function wpdebug_menu() {
-	global $wpdebugestructure, $wpdebugsettings, $wpdebugabout;
+	global $wpdebugestructure, $wpdebugsettings, $wpdebugabout, $wpdebugcpt, $wpdebugcptadd, $wpdebugcpttaxo;
 
 	$page_title = esc_html__( 'WP Debug', 'wp-debug' );
 	$menu_title = 'WP Debug';
@@ -24,6 +24,9 @@ function wpdebug_menu() {
 	$wpdebugsettings   = add_submenu_page( $menu_slug, esc_html__( 'Settings', 'wp-debug' ), esc_html__( 'Settings', 'wp-debug' ), $capability, $menu_slug );
 	$wpdebugestructure = add_submenu_page( $menu_slug, esc_html__( 'List Menu', 'wp-debug' ), esc_html__( 'List Menu', 'wp-debug' ), $capability, 'wpdebug_screen_menu_submenus_array', 'wpdebug_screen_menu_submenus_array' );
 	$wpdebugabout      = add_submenu_page( $menu_slug, esc_html__( 'About', 'wp-debug' ), esc_html__( 'About', 'wp-debug' ), $capability, 'wpdebug_about_page', 'wpdebug_about_page' );
+	$wpdebugcpt        = add_submenu_page( $menu_slug, esc_html__( 'Mi CPT', 'wp-debug' ), esc_html__( 'Mi CPT',   'wp-debug' ), $capability, 'edit.php?post_type=mi_post_type');
+	$wpdebugcptadd     = add_submenu_page( $menu_slug, esc_html__( 'Add CPT', 'wp-debug' ), esc_html__( 'Add CPT',   'wp-debug' ), $capability, 'post-new.php?post_type=mi_post_type');
+	$wpdebugcpttaxo    = add_submenu_page( $menu_slug, esc_html__( 'Mi Taxonomía', 'wp-debug' ), esc_html__( 'Mi Taxonomía',   'wp-debug' ), $capability, 'edit-tags.php?taxonomy=mi_taxonomia');
 }
 add_action( 'admin_menu', 'wpdebug_menu' );
 

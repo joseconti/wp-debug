@@ -26,7 +26,7 @@ function wpdebug_menu() {
 	$wpdebugabout      = add_submenu_page( $menu_slug, esc_html__( 'About', 'wp-debug' ), esc_html__( 'About', 'wp-debug' ), $capability, 'wpdebug_about_page', 'wpdebug_about_page' );
 	$wpdebugcpt        = add_submenu_page( $menu_slug, esc_html__( 'Mi CPT', 'wp-debug' ), esc_html__( 'Mi CPT',   'wp-debug' ), $capability, 'edit.php?post_type=mi_post_type');
 	$wpdebugcptadd     = add_submenu_page( $menu_slug, esc_html__( 'Add CPT', 'wp-debug' ), esc_html__( 'Add CPT',   'wp-debug' ), $capability, 'post-new.php?post_type=mi_post_type');
-	$wpdebugcpttaxo    = add_submenu_page( $menu_slug, esc_html__( 'Mi Taxonomía', 'wp-debug' ), esc_html__( 'Mi Taxonomía',   'wp-debug' ), $capability, 'edit-tags.php?taxonomy=mi_taxonomia');
+	$wpdebugcpttaxo    = add_submenu_page( $menu_slug, esc_html__( 'Mi Taxonomía', 'wp-debug' ), esc_html__( 'Mi Taxonomía',   'wp-debug' ), $capability, 'edit-tags.php?taxonomy=mi_taxonomia&post_type=mi_post_type');
 }
 add_action( 'admin_menu', 'wpdebug_menu' );
 

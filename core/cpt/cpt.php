@@ -108,7 +108,7 @@ function mi_taxonomia() {
 }
 add_action( 'init', 'mi_taxonomia', 0 );
 
-// filtro para añadir las acciones al listado de entradas
+// filtro para añadir las acciones al listado de entradas (post)
 add_filter( 'bulk_actions-edit-mi_post_type', 'wp_debug_anadimos_acciones_bulk' );
 
 function wp_debug_anadimos_acciones_bulk( $bulk_actions ) {
@@ -118,7 +118,7 @@ function wp_debug_anadimos_acciones_bulk( $bulk_actions ) {
 	return $bulk_actions;
 }
 
-// Filto para añadir lo que se debe hacer con las acciones anteriores cuando se seleccionan en el listado de entradas
+// Filto para añadir lo que se debe hacer con las acciones anteriores cuando se seleccionan en el listado de entradas (post)
 add_filter( 'handle_bulk_actions-edit-mi_post_type', 'wp_debug_anadimos_actions_handler', 10, 3 );
 
 function wp_debug_anadimos_actions_handler( $redirect_to, $doaction, $post_ids ) {

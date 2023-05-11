@@ -1,0 +1,10 @@
+Cómo poner WP en modo debug de forma segura:
+
+1.- Edita el archivo wp-config.php
+2.- Añade la siguiente linea de código:
+
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_LOG', 'wp-content/mi-nombre-personalizado.log' );
+define( 'WP_DEBUG_DISPLAY', false );
+@ini_set('display_errors',0);
+define( 'SCRIPT_DEBUG', true );

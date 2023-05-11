@@ -17,6 +17,7 @@ WP-DEbug is a simple plugin for debugging WordPress.
 = Titulo 1 =
 
 Contenido
+Esto sería un ejemplo de [enlace](https://www.joseconti.com/)
 
 = Título 2 =
 

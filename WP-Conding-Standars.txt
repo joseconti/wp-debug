@@ -1,0 +1,6 @@
+Debes instalar el que más se ajuste a tus necesidades.
+
+WordPress > https://github.com/WordPress/WordPress-Coding-Standards
+WordPress VIP > https://github.com/Automattic/VIP-Coding-Standards
+WooCommerce > https://github.com/woocommerce/woocommerce-sniffs
+

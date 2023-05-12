@@ -1,0 +1,44 @@
+(Install Xcode > https://guide.macports.org/#installing.xcode)
+xcode-select --install
+sudo xcodebuild -license
+Descargar PKG para OS https://www.macports.org/install.php
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+sudo port -v selfupdate
+man port
+sudo port install php80
+sudo port install php80-cgi php80-gd php80-curl php80-intl php80-iconv php80-gettext php80-mbstring php80-imap php80-mcrypt php80-xmlrpc php80-mysql php80-openssl php80-sockets php80-zip php80-tidy php80-opcache php80-xsl php80-sqlite
+sudo port select php php80
+which php
+php --version  
+cd /opt/local/etc/php80
+sudo mv php.ini-development php.ini
+sudo vi php.ini > aumentamos memoria, descarga, post, etc.
+
+Descargar Composer.phar https://getcomposer.org/download/
+sudo mv composer.phar /usr/local/bin/
+sudo chmod 755 /usr/local/bin/composer.phar
+nano ~/.profile
+añadimos > alias composer="php /usr/local/bin/composer.phar"
+source ~/.profile
+composer -v
+composer g require woocommerce/woocommerce-sniffs
+
+Instalamos Visual Studio Code
+Instalamos PHP_CodeSniffer > https://marketplace.visualstudio.com/items?itemName=obliviousharmony.vscode-php-codesniffer
+Configuramos PHP_CodeSniffer:
+ * phpcs  > /Users/joseconticalveras/.composer/vendor/bin/phpcs
+ * PHP Code Sniffer > WooCommerce-Core
+
+ settings.json:
+ {
+    "workbench.colorTheme": "Default Dark+",
+    "security.workspace.trust.untrustedFiles": "open",
+    "phpCodeSniffer.standard": "Custom",
+    "phpCodeSniffer.standardCustom": "WooCommerce-Core",
+    "php.validate.executablePath": "/opt/local/bin/php",
+    "phpcbf.executablePath": "/Users/joseconticalveras/.composer/vendor/bin/phpcbf",
+    "phpCodeSniffer.executable": "/Users/joseconticalveras/.composer/vendor/bin/phpcs",
+    "[php]": {
+        "editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
+    },
+}

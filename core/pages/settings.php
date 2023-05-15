@@ -33,6 +33,15 @@ function wpdebug_settings_page() { ?>
 	<?php
 }
 
-//Include all options
+// Include all options
 require_once 'setting-options/main-settings.php';
-//require_once 'setting-options/advanced-settings.php';
+require_once 'setting-options/advanced-settings.php';
+
+add_action( 'admin_enqueue_scripts', 'wpdebug_enqueue_color_picker' );
+
+function wpdebug_enqueue_color_picker( $hook ) {
+	if ( 'toplevel_page_wp_debug' === $hook ) {
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'wpdebug-color-picker', WPDEBUG_PLUGIN_URL . 'assets/js/color-picker.js', array( 'wp-color-picker' ), false, true );
+	}
+}

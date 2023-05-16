@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function wpdebug_add_notice() {
-	
+
 	$screen        = get_current_screen();
 	$notice_status = get_option( 'hide-wpdebug-notice' );
 

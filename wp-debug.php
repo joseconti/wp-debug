@@ -95,7 +95,7 @@ function wp_debug_about_styles_css( $hook ) {
 add_action( 'admin_enqueue_scripts', 'wp_debug_about_styles_css' );
 
 function wp_debug_add_text_storefront_post_content_before() {
-    _e( 'Esto está sobre la entrada', 'wp-debug');
+	_e( 'Esto está sobre la entrada', 'wp-debug' );
 }
 add_action( 'storefront_post_content_before', 'wp_debug_add_text_storefront_post_content_before' );
 
@@ -108,3 +108,51 @@ function wp_debug_anadir_golger_analytics() {
 	echo '<!-- Fin de lo añade mi plugin -->';
 }
 add_action( 'wp_footer', 'wp_debug_anadir_golger_analytics' );
+
+function wp_debug_modify_login_title( $login_title, $title ) {
+
+	$login_title = 'Nuevo título de página de login';
+	return $login_title;
+}
+// add_filter( 'login_title', 'wp_debug_modify_login_title', 10, 2 );
+
+function wp_debug_update_url( $url ) {
+	$url = 'https://cursojc.com/';
+	return $url;
+}
+// add_filter( 'login_headerurl', 'wp_debug_update_url' );
+
+// Ejemplo printf + wp_kses + esc_url
+
+/*
+
+$guias  = 'https://redsys.joseconti.com/guias/';
+$faq    = 'https://redsys.joseconti.com/redsys-for-woocommerce/';
+$ticket = 'https://woocommerce.com/my-account/tickets/';
+printf(
+	wp_kses(
+		'<div class="redsysnotice">
+				<span class="dashicons dashicons-welcome-learn-more redsysnotice-dash"></span>
+				<span class="redsysnotice__content">' .
+				// translators: Links to Jose Conti Redsys website Guides, Faq and Suport tickets.
+				__( 'For Redsys Help: Check the website <a href="%1$s" target="_blank" rel="noopener">Guides</a> for setup <a href="%2$s" target="_blank" rel="noopener">FAQ page</a> for working problems, or open a <a href="%3$s" target="_blank" rel="noopener"> Ticket</a> for support', 'wp-debug' ) . '<span></div>',
+		array(
+			'a'    => array(
+				'href'   => array(),
+				'target' => array(),
+				'rel'    => array(),
+			),
+			'div'  => array(
+				'class' => array(),
+			),
+			'span' => array(
+				'class' => array(),
+			),
+		)
+	),
+	esc_url( $guias ),
+	esc_url( $faq ),
+	esc_url( $ticket )
+);
+
+*/

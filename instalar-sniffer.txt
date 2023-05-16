@@ -5,12 +5,12 @@ Descargar PKG para OS https://www.macports.org/install.php
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 sudo port -v selfupdate
 man port
-sudo port install php80
-sudo port install php80-cgi php80-gd php80-curl php80-intl php80-iconv php80-gettext php80-mbstring php80-imap php80-mcrypt php80-xmlrpc php80-mysql php80-openssl php80-sockets php80-zip php80-tidy php80-opcache php80-xsl php80-sqlite
-sudo port select php php80
+sudo port install php74
+sudo port install php74-cgi php74-gd php74-curl php74-intl php74-iconv php74-gettext php74-mbstring php74-imap php74-mcrypt php74-xmlrpc php74-mysql php74-openssl php74-sockets php74-zip php74-tidy php74-opcache php74-xsl php74-sqlite
+sudo port select php php74
 which php
 php --version  
-cd /opt/local/etc/php80
+cd /opt/local/etc/php74
 sudo mv php.ini-development php.ini
 sudo vi php.ini > aumentamos memoria, descarga, post, etc.
 

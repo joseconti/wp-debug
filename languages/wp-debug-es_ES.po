@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WordPress debug\n"
-"POT-Creation-Date: 2019-05-07 00:42+0200\n"
-"PO-Revision-Date: 2019-05-07 00:43+0200\n"
+"POT-Creation-Date: 2023-05-12 10:56+0200\n"
+"PO-Revision-Date: 2023-05-12 10:57+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -19,7 +19,179 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: core/cpt/cpt.php:11
+msgctxt "Post Type General Name"
+msgid "Post Types"
+msgstr ""
+
+#: core/cpt/cpt.php:12
+msgctxt "Post Type Singular Name"
+msgid "Post Type"
+msgstr ""
+
+#: core/cpt/cpt.php:13
+msgid "Post Types"
+msgstr ""
+
+#: core/cpt/cpt.php:14 core/cpt/cpt.php:46
+msgid "Post Type"
+msgstr ""
+
+#: core/cpt/cpt.php:15
+msgid "Item Archives"
+msgstr ""
+
+#: core/cpt/cpt.php:16
+msgid "Item Attributes"
+msgstr ""
+
+#: core/cpt/cpt.php:17 core/cpt/cpt.php:80
+msgid "Parent Item:"
+msgstr ""
+
+#: core/cpt/cpt.php:18 core/cpt/cpt.php:78
+msgid "All Items"
+msgstr ""
+
+#: core/cpt/cpt.php:19 core/cpt/cpt.php:82
+msgid "Add New Item"
+msgstr ""
+
+#: core/cpt/cpt.php:20
+msgid "Add New"
+msgstr ""
+
+#: core/cpt/cpt.php:21
+msgid "New Item"
+msgstr ""
+
+#: core/cpt/cpt.php:22 core/cpt/cpt.php:83
+msgid "Edit Item"
+msgstr ""
+
+#: core/cpt/cpt.php:23 core/cpt/cpt.php:84
+msgid "Update Item"
+msgstr ""
+
+#: core/cpt/cpt.php:24 core/cpt/cpt.php:85
+msgid "View Item"
+msgstr ""
+
+#: core/cpt/cpt.php:25
+msgid "View Items"
+msgstr ""
+
+#: core/cpt/cpt.php:26
+msgid "Search Item"
+msgstr ""
+
+#: core/cpt/cpt.php:27
+msgid "Not found"
+msgstr ""
+
+#: core/cpt/cpt.php:28
+msgid "Not found in Trash"
+msgstr ""
+
+#: core/cpt/cpt.php:29
+msgid "Featured Image"
+msgstr ""
+
+#: core/cpt/cpt.php:30
+msgid "Set featured image"
+msgstr ""
+
+#: core/cpt/cpt.php:31
+msgid "Remove featured image"
+msgstr ""
+
+#: core/cpt/cpt.php:32
+msgid "Use as featured image"
+msgstr ""
+
+#: core/cpt/cpt.php:33
+msgid "Insert into item"
+msgstr ""
+
+#: core/cpt/cpt.php:34
+msgid "Uploaded to this item"
+msgstr ""
+
+#: core/cpt/cpt.php:35 core/cpt/cpt.php:93
+msgid "Items list"
+msgstr ""
+
+#: core/cpt/cpt.php:36 core/cpt/cpt.php:94
+msgid "Items list navigation"
+msgstr ""
+
+#: core/cpt/cpt.php:37
+msgid "Filter items list"
+msgstr ""
+
+#: core/cpt/cpt.php:47
+msgid "Post Type Description"
+msgstr ""
+
+#: core/cpt/cpt.php:75
+msgctxt "Taxonomy General Name"
+msgid "Taxonomies"
+msgstr ""
+
+#: core/cpt/cpt.php:76
+msgctxt "Taxonomy Singular Name"
+msgid "Taxonomy"
+msgstr ""
+
+#: core/cpt/cpt.php:77
+msgid "Taxonomy"
+msgstr ""
+
+#: core/cpt/cpt.php:79
+msgid "Parent Item"
+msgstr ""
+
+#: core/cpt/cpt.php:81
+msgid "New Item Name"
+msgstr ""
+
+#: core/cpt/cpt.php:86
+msgid "Separate items with commas"
+msgstr ""
+
+#: core/cpt/cpt.php:87
+msgid "Add or remove items"
+msgstr ""
+
+#: core/cpt/cpt.php:88
+msgid "Choose from the most used"
+msgstr ""
+
+#: core/cpt/cpt.php:89
+msgid "Popular Items"
+msgstr ""
+
+#: core/cpt/cpt.php:90
+msgid "Search Items"
+msgstr ""
+
+#: core/cpt/cpt.php:91
+msgid "Not Found"
+msgstr ""
+
+#: core/cpt/cpt.php:92
+msgid "No items"
+msgstr ""
+
+#: core/cpt/cpt.php:115
+msgid "Esta es la acción primera"
+msgstr ""
+
+#: core/cpt/cpt.php:116
+msgid "Esta es la acción segunda"
+msgstr ""
 
 #: core/menu/menu.php:14 core/pages/about.php:13
 msgid "WP Debug"
@@ -36,6 +208,18 @@ msgstr "Listar menú"
 #: core/menu/menu.php:26
 msgid "About"
 msgstr "Sobre"
+
+#: core/menu/menu.php:27
+msgid "Mi CPT"
+msgstr ""
+
+#: core/menu/menu.php:28
+msgid "Add CPT"
+msgstr "Añadir CPT"
+
+#: core/menu/menu.php:29
+msgid "Mi Taxonomía"
+msgstr ""
 
 #: core/notice/notices.php:22
 msgid "Dismiss"
@@ -108,7 +292,7 @@ msgstr "Configuraciones principales"
 msgid "Advanced Settings"
 msgstr "Configuraciones avanzadas"
 
-#: wp-debug.php:43
+#: wp-debug.php:50
 msgid "Screen: "
 msgstr "Pantalla: "
 

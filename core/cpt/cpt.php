@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Register Custom Post Type
 function wp_debug_mi_post_type() {
 
-	$labels = array(
+	$labels  = array(
 		'name'                  => _x( 'Post Types', 'Post Type General Name', 'wp-debug' ),
 		'singular_name'         => _x( 'Post Type', 'Post Type Singular Name', 'wp-debug' ),
 		'menu_name'             => __( 'Post Types', 'wp-debug' ),
@@ -37,38 +37,38 @@ function wp_debug_mi_post_type() {
 		'filter_items_list'     => __( 'Filter items list', 'wp-debug' ),
 	);
 	$rewrite = array(
-		'slug'                  => 'mi-custom',
-		'with_front'            => true,
-		'pages'                 => true,
-		'feeds'                 => true,
+		'slug'       => 'mi-custom',
+		'with_front' => true,
+		'pages'      => true,
+		'feeds'      => true,
 	);
-	$args = array(
-		'label'                 => __( 'Post Type', 'wp-debug' ),
-		'description'           => __( 'Post Type Description', 'wp-debug' ),
-		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor' ),
-		'taxonomies'            => array( 'mi_taxonomia' ),
-		'hierarchical'          => false,
-		'public'                => true,
-		'show_ui'               => true,
-		'show_in_menu'          => false,
-		'menu_position'         => 10,
-		'show_in_admin_bar'     => false,
-		'show_in_nav_menus'     => false,
-		'can_export'            => true,
-		'has_archive'           => false,
-		'exclude_from_search'   => true,
-		'publicly_queryable'    => true,
-		'rewrite'               => $rewrite,
-		'capability_type'       => 'page',
-		'show_in_rest'          => true,
+	$args    = array(
+		'label'               => __( 'Post Type', 'wp-debug' ),
+		'description'         => __( 'Post Type Description', 'wp-debug' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor' ),
+		'taxonomies'          => array( 'mi_taxonomia' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => false,
+		'menu_position'       => 10,
+		'show_in_admin_bar'   => false,
+		'show_in_nav_menus'   => false,
+		'can_export'          => true,
+		'has_archive'         => false,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+		'show_in_rest'        => true,
 	);
 	register_post_type( 'mi_post_type', $args );
 
 }
 add_action( 'init', 'wp_debug_mi_post_type', 0 );
 
-// Register Custom Taxonomy
+// Register Custom Taxonomy.
 function mi_taxonomia() {
 
 	$labels = array(
@@ -93,53 +93,53 @@ function mi_taxonomia() {
 		'items_list'                 => __( 'Items list', 'wp-debug' ),
 		'items_list_navigation'      => __( 'Items list navigation', 'wp-debug' ),
 	);
-	$args = array(
-		'labels'                     => $labels,
-		'hierarchical'               => true,
-		'public'                     => true,
-		'show_ui'                    => true,
-		'show_admin_column'          => true,
-		'show_in_nav_menus'          => true,
-		'show_tagcloud'              => true,
-		'show_in_rest'               => true,
+	$args   = array(
+		'labels'            => $labels,
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'show_in_nav_menus' => true,
+		'show_tagcloud'     => true,
+		'show_in_rest'      => true,
 	);
 	register_taxonomy( 'mi_taxonomia', array( 'mi_post_type' ), $args );
 
 }
 add_action( 'init', 'mi_taxonomia', 0 );
 
-// filtro para añadir las acciones al listado de entradas (post)
+// filtro para añadir las acciones al listado de entradas (post).
 add_filter( 'bulk_actions-edit-mi_post_type', 'wp_debug_anadimos_acciones_bulk' );
 
 function wp_debug_anadimos_acciones_bulk( $bulk_actions ) {
 	$bulk_actions['accion_primera_anadida'] = esc_html__( 'Esta es la acción primera', 'wp-debug' );
 	$bulk_actions['accion_segunda_anadida'] = esc_html__( 'Esta es la acción segunda', 'wp-debug' );
-	
+
 	return $bulk_actions;
 }
 
-// Filto para añadir lo que se debe hacer con las acciones anteriores cuando se seleccionan en el listado de entradas (post)
+// Filto para añadir lo que se debe hacer con las acciones anteriores cuando se seleccionan en el listado de entradas (post).
 add_filter( 'handle_bulk_actions-edit-mi_post_type', 'wp_debug_anadimos_actions_handler', 10, 3 );
 
 function wp_debug_anadimos_actions_handler( $redirect_to, $doaction, $post_ids ) {
-	
-	//Solo continúa si son las acciones que hemos creado nosotros
-	if ( 'accion_primera_anadida' !== $doaction &&  'accion_segunda_anadida' !== $doaction ) {
+
+	// Solo continúa si son las acciones que hemos creado nosotros.
+	if ( 'accion_primera_anadida' !== $doaction && 'accion_segunda_anadida' !== $doaction ) {
 		return $redirect_to;
 	}
-	// Si es la acción primera, realizará estas acciones
-	if ( 'accion_primera_anadida'=== $doaction ) {
-		foreach( $post_ids as $post_id ) {
-			// Aquí lo que quieras que se realice con accion_primera_anadida
+	// Si es la acción primera, realizará estas acciones.
+	if ( 'accion_primera_anadida' === $doaction ) {
+		foreach ( $post_ids as $post_id ) {
+			// Aquí lo que quieras que se realice con accion_primera_anadida.
 		}
-		
+
 		$redirect_to = add_query_arg( 'accion_primera_anadida', count( $post_ids ), $redirect_to );
 		return $redirect_to;
-	
+
 	} elseif ( 'accion_segunda_anadida' === $doaction ) {
-		
-		foreach( $post_ids as $post_id ) {
-			
+
+		foreach ( $post_ids as $post_id ) {
+
 			// Aquí lo que quieras que se realice con accion_segunda_anadida
 		}
 		$redirect_to = add_query_arg( 'accion_segunda_anadida', count( $post_ids ), $redirect_to );
@@ -148,9 +148,8 @@ function wp_debug_anadimos_actions_handler( $redirect_to, $doaction, $post_ids )
 }
 
 /******************************************************/
-/*** Para hacer un metabox compatible con Gutenberg ***/
+/*** Para hacer un metabox compatible con Gutenberg */
 /*****************************************************/
-
 /*
 add_meta_box( 'my-meta-box', 'My Meta Box', 'my_meta_box_callback', null, 'side', 'high',
 	array(

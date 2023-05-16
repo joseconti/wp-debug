@@ -31,17 +31,22 @@ function wp_debug_init() {
 }
 add_action( 'plugins_loaded', 'wp_debug_init', 11 );
 
+require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-global.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/menu/menu.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/notice/notices.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/cpt/cpt.php';
+
+function wpdebug() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+	return new Wp_Debug_Global();
+}
 
 function wp_debug_add_current_screen_to_admin_bar() {
 	global $wp_admin_bar;
 
 	if ( is_admin() ) {
 		$screen    = get_current_screen();
-		$activated = get_option( 'wpdebug_activate_page_menubar_field' );
-	
+		$activated = wpdebug()->get_option( 'wpdebug_activate_page_menubar_field' );
+
 		if ( $activated && '1' === $activated ) {
 			$wp_admin_bar->add_menu(
 				array(

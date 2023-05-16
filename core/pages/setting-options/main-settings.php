@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function wpdebug_activate_page_menubar_field() { ?>
 
-	<input type="checkbox" title="<?php esc_html_e( 'Activate Page Menu bar', 'wp-debug' ); ?>" name="wpdebug_activate_page_menubar_field" value="1" <?php checked( 1, get_option( 'wpdebug_activate_page_menubar_field' ), true ); ?>/>
+	<input type="checkbox" title="<?php esc_html_e( 'Activate Page Menu bar', 'wp-debug' ); ?>" name="wpdebug_activate_page_menubar_field" value="1" <?php checked( 1, wpdebug()->get_option( 'wpdebug_activate_page_menubar_field' ), true ); ?>/>
 	<?php
 }
 

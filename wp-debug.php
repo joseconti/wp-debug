@@ -41,7 +41,7 @@ function wp_debug_add_current_screen_to_admin_bar() {
 	if ( is_admin() ) {
 		$screen    = get_current_screen();
 		$activated = get_option( 'wpdebug_activate_page_menubar_field' );
-
+	
 		if ( $activated && '1' === $activated ) {
 			$wp_admin_bar->add_menu(
 				array(
@@ -88,3 +88,18 @@ function wp_debug_about_styles_css( $hook ) {
 	}
 }
 add_action( 'admin_enqueue_scripts', 'wp_debug_about_styles_css' );
+
+function wp_debug_add_text_storefront_post_content_before() {
+    _e( 'Esto está sobre la entrada', 'wp-debug');
+}
+add_action( 'storefront_post_content_before', 'wp_debug_add_text_storefront_post_content_before' );
+
+function wp_debug_anadir_golger_analytics() {
+	echo '<!-- Esto lo añade mi plugin -->';
+	?>
+	<script>
+	</script>
+	<?php
+	echo '<!-- Fin de lo añade mi plugin -->';
+}
+add_action( 'wp_footer', 'wp_debug_anadir_golger_analytics' );

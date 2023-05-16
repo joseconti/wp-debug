@@ -1,3 +1,3 @@
 jQuery(document).ready(function($){
-    $('.color-picker').wpColorPicker();
+    $('.wp-debug-color-picker').wpColorPicker();
 });

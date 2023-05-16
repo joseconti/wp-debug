@@ -41,7 +41,7 @@ function wp_debug_add_current_screen_to_admin_bar() {
 	if ( is_admin() ) {
 		$screen    = get_current_screen();
 		$activated = get_option( 'wpdebug_activate_page_menubar_field' );
-	
+
 		if ( $activated && '1' === $activated ) {
 			$wp_admin_bar->add_menu(
 				array(

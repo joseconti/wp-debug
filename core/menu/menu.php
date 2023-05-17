@@ -16,7 +16,7 @@ function wpdebug_menu() {
 	$capability = 'manage_options';
 	$menu_slug  = 'wp_debug';
 	$function   = 'wpdebug_settings_page';
-	$icon_url   = null;
+	$icon_url   = 'dashicons-sos';
 	$position   = null;
 
 	add_menu_page( $page_title, $menu_title, 'manage_options', $menu_slug, $function, $icon_url, $position );

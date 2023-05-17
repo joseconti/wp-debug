@@ -16,7 +16,7 @@ class Wp_Debug_Global {
 			}
 			switch_to_blog( $main_site );
 			$option = get_option( $option );
-			restore_blog();
+			restore_current_blog();
 			return $option;
 		}
 		return get_option( $option );

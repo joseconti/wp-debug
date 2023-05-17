@@ -114,13 +114,13 @@ function wp_debug_modify_login_title( $login_title, $title ) {
 	$login_title = 'Nuevo título de página de login';
 	return $login_title;
 }
-// add_filter( 'login_title', 'wp_debug_modify_login_title', 10, 2 );
+add_filter( 'login_title', 'wp_debug_modify_login_title', 10, 2 );
 
 function wp_debug_update_url( $url ) {
 	$url = 'https://cursojc.com/';
 	return $url;
 }
-// add_filter( 'login_headerurl', 'wp_debug_update_url' );
+add_filter( 'login_headerurl', 'wp_debug_update_url' );
 
 // Ejemplo printf + wp_kses + esc_url
 

@@ -1,46 +1,57 @@
 <?php
 /**
-Plugin Name: WordPress debug
-Plugin URI: https://www.joseconti.com/
-Description: Muestra herramientas para debug.
-Version: 0.0.1
-Author: José Conti
-Author URI: https://www.joseconti.com/
-Tested up to: 5.1
-WC requires at least: 3.0
-WC tested up to: 3.6
-Woo: XXXXXXXXXXXXXXXXXXXXXXXXX
-Text Domain: wp-debug
-Domain Path: /languages/
-Network: true
-Requires PHP: 5.6.0
-Copyright: (C) 2019 José Conti
-License: GNU General Public License v3.0
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Plugin Name: WordPress debug
+ * Plugin URI: https://www.joseconti.com/
+ * Description: Muestra herramientas para debug.
+ * Version: 0.0.1
+ * Author: José Conti
+ * Author URI: https://www.joseconti.com/
+ * Tested up to: 5.1
+ * WC requires at least: 3.0
+ * WC tested up to: 3.6
+ * Woo: XXXXXXXXXXXXXXXXXXXXXXXXX
+ * Text Domain: wp-debug
+ * Domain Path: /languages/
+ * Network: true
+ * Requires PHP: 5.6.0
+ * Copyright: (C) 2019 José Conti
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
 
 define( 'WPDEBUG_VERSION', '0.0.1' );
 define( 'WPDEBUG_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPDEBUG_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-
+/**
+ * Plugns loaded.
+ */
 function wp_debug_init() {
 	load_plugin_textdomain( 'wp-debug', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-	//if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
-	//	include_once WPDEBUG_PLUGIN_PATH . 'core/load-woocommerce-functions.php';
-	//}
+	// if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) ) {
+	// include_once WPDEBUG_PLUGIN_PATH . 'core/load-woocommerce-functions.php';
+	// }
 }
 add_action( 'plugins_loaded', 'wp_debug_init', 11 );
 
 require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-global.php';
-require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-users.php';
+// require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-users.php';
+// require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-images.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/menu/menu.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/notice/notices.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/cpt/cpt.php';
 
+/**
+ * Global function.
+ *
+ * @return Wp_Debug_Global
+ */
 function wpdebug() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	return new Wp_Debug_Global();
 }
 
+/**
+ * Add current screen to admin bar.
+ */
 function wp_debug_add_current_screen_to_admin_bar() {
 	global $wp_admin_bar;
 
@@ -61,12 +72,16 @@ function wp_debug_add_current_screen_to_admin_bar() {
 }
 add_action( 'admin_bar_menu', 'wp_debug_add_current_screen_to_admin_bar' );
 
-// SEUR Get Parent Page.
+/**
+ * Get parent page.
+ */
 function wp_debug_get_parent_page() {
 	$wp_debug_parent = basename( $_SERVER['SCRIPT_NAME'] );
 	return $wp_debug_parent;
 }
-
+/**
+ * Welcome splash.
+ */
 function wp_debug_welcome_splash() {
 	$wp_debug_parent = wp_debug_get_parent_page();
 
@@ -83,6 +98,11 @@ function wp_debug_welcome_splash() {
 }
 add_action( 'admin_init', 'wp_debug_welcome_splash', 1 );
 
+/**
+ * Add styles.
+ *
+ * @param string $hook Page.
+ */
 function wp_debug_about_styles_css( $hook ) {
 	global $wpdebugabout;
 
@@ -95,11 +115,17 @@ function wp_debug_about_styles_css( $hook ) {
 }
 add_action( 'admin_enqueue_scripts', 'wp_debug_about_styles_css' );
 
+/**
+ * Add scripts.
+ */
 function wp_debug_add_text_storefront_post_content_before() {
 	_e( 'Esto está sobre la entrada', 'wp-debug' );
 }
 add_action( 'storefront_post_content_before', 'wp_debug_add_text_storefront_post_content_before' );
 
+/**
+ * Add scripts.
+ */
 function wp_debug_anadir_golger_analytics() {
 	echo '<!-- Esto lo añade mi plugin -->';
 	?>
@@ -110,6 +136,12 @@ function wp_debug_anadir_golger_analytics() {
 }
 add_action( 'wp_footer', 'wp_debug_anadir_golger_analytics' );
 
+/**
+ * Modify login title.
+ *
+ * @param string $login_title Login title.
+ * @param string $title       Title.
+ */
 function wp_debug_modify_login_title( $login_title, $title ) {
 
 	$login_title = 'Nuevo título de página de login';
@@ -117,16 +149,20 @@ function wp_debug_modify_login_title( $login_title, $title ) {
 }
 add_filter( 'login_title', 'wp_debug_modify_login_title', 10, 2 );
 
+/**
+ * Modify login header url.
+ *
+ * @param string $url Url.
+ */
 function wp_debug_update_url( $url ) {
 	$url = 'https://cursojc.com/';
 	return $url;
 }
 add_filter( 'login_headerurl', 'wp_debug_update_url' );
 
-// Ejemplo printf + wp_kses + esc_url
+// Ejemplo printf + wp_kses + esc_url.
 
 /*
-
 $guias  = 'https://redsys.joseconti.com/guias/';
 $faq    = 'https://redsys.joseconti.com/redsys-for-woocommerce/';
 $ticket = 'https://woocommerce.com/my-account/tickets/';

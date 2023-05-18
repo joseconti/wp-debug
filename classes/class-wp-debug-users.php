@@ -35,7 +35,7 @@ class Wp_Debug_Users {
 			</tr>
 				<?php wp_nonce_field( 'wp_debug_check_nonce', 'wp_debug_nonce_user_fields' ); ?>
 		</table>
-			<?php
+		<?php
 	}
 	public function save_extra_profile_fields( $user_id ) {
 

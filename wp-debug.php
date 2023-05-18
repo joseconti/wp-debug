@@ -193,3 +193,22 @@ printf(
 );
 
 */
+
+add_action( 'init', 'wp_debug_add_custom_role', 11 );
+function wp_debug_add_custom_role() {
+	add_role(
+		'cpt_perfil',
+		__( 'Perfil CPT' ),
+		array(
+			'edit_cpt'         => true,
+			'read_cpt'         => true,
+			'delete_cpt'       => true,
+			'edit_cpt'         => true,
+			'edit_others_cpt'  => true,
+			'publish_cpt'      => true,
+			'read_private_cpt' => true,
+			'upload_files'     => true,
+		)
+	);
+	// remove_role( 'cpt_perfil' );
+}

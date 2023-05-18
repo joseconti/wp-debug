@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Register Custom Post Type
 function wp_debug_mi_post_type() {
 
-	$labels  = array(
+	$labels       = array(
 		'name'                  => _x( 'Post Types', 'Post Type General Name', 'wp-debug' ),
 		'singular_name'         => _x( 'Post Type', 'Post Type Singular Name', 'wp-debug' ),
 		'menu_name'             => __( 'Post Types', 'wp-debug' ),
@@ -36,13 +36,22 @@ function wp_debug_mi_post_type() {
 		'items_list_navigation' => __( 'Items list navigation', 'wp-debug' ),
 		'filter_items_list'     => __( 'Filter items list', 'wp-debug' ),
 	);
-	$rewrite = array(
+	$rewrite      = array(
 		'slug'       => 'mi-custom',
 		'with_front' => true,
 		'pages'      => true,
 		'feeds'      => true,
 	);
-	$args    = array(
+	$capabilities = array(
+		'edit_post'          => 'edit_cpt',
+		'read_post'          => 'read_cpt',
+		'delete_post'        => 'delete_cpt',
+		'edit_posts'         => 'edit_cpt',
+		'edit_others_posts'  => 'edit_others_cpt',
+		'publish_posts'      => 'publish_cpt',
+		'read_private_posts' => 'read_private_cpt',
+	);
+	$args         = array(
 		'label'               => __( 'Post Type', 'wp-debug' ),
 		'description'         => __( 'Post Type Description', 'wp-debug' ),
 		'labels'              => $labels,
@@ -59,8 +68,8 @@ function wp_debug_mi_post_type() {
 		'has_archive'         => false,
 		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
+		'capabilities'        => $capabilities,
 		'rewrite'             => $rewrite,
-		'capability_type'     => 'page',
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'mi_post_type', $args );

@@ -11,7 +11,7 @@ class Wp_Debug_Global {
 
 		$main_site = 1;
 		if ( defined( 'WP_DEBUG_GLOBAL_OPTIONS' ) && WP_DEBUG_GLOBAL_OPTIONS ) {
-			if ( defined( WP_DEBUG_MAIN_SITE ) ) {
+			if ( defined( 'WP_DEBUG_MAIN_SITE' ) ) {
 				$main_site = WP_DEBUG_MAIN_SITE;
 			}
 			switch_to_blog( $main_site );

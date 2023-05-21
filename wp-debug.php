@@ -36,10 +36,11 @@ add_action( 'plugins_loaded', 'wp_debug_init', 11 );
 
 require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-global.php';
 // require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-users.php';
-// require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-images.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/menu/menu.php';
+require_once WPDEBUG_PLUGIN_PATH . 'core/menu/multisite.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/notice/notices.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/cpt/cpt.php';
+
 
 /**
  * Global function.

@@ -231,8 +231,3 @@ function wp_debug_add_custom_role() {
 	);
 	// remove_role( 'cpt_perfil' );
 }
-
-function create_block_wp_debug_block_init() {
-	register_block_type( __DIR__ . '/build' );
-}
-add_action( 'init', 'create_block_wp_debug_block_init' );

@@ -1,9 +1,5 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
-
 function wp_debug_shortcode_redsys_card_image() {
 	return '<img src="' . esc_url( WPDEBUG_PLUGIN_URL ) . 'assets/img/Visa-MasterCard.png" alt="' . esc_html__( 'Accepted Credit Cards', 'woocommerce-redsys' ) . '" height="58" width="150">';
 }

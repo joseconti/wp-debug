@@ -22,6 +22,7 @@
 define( 'WPDEBUG_VERSION', '0.0.1' );
 define( 'WPDEBUG_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WPDEBUG_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'WP_DEBUG_DB_VERSION', '1.0.0' );
 /**
  * Plugns loaded.
  */
@@ -48,6 +49,15 @@ require_once WPDEBUG_PLUGIN_PATH . 'core/cpt/cpt.php';
 function wpdebug() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
 	return new Wp_Debug_Global();
 }
+
+/**
+ * Add data to tables.
+ */
+require_once WPDEBUG_PLUGIN_PATH . 'core/installer.php';
+// register_activation_hook( __FILE__, 'wp_debug_create_tables_hook' );
+// register_activation_hook( __FILE__, 'wp_debug_add_data_to_tables_hook' );
+// register_activation_hook( __FILE__, 'wp_debug_create_upload_folder_hook' );
+// register_activation_hook( __FILE__, 'wp_debug_add_avanced_settings_preset' );
 
 /**
  * Add current screen to admin bar.

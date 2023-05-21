@@ -13,10 +13,6 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
-function getBaseUrl() {
-    return window.location.protocol + "//" + window.location.host;
-}
-
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -33,6 +29,10 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
+function getBaseUrl() {
+    return window.location.protocol + "//" + window.location.host;
+}
+
 export default function Edit() {
     const blockProps = useBlockProps();
     const imageUrl = getBaseUrl() + '/wp-content/plugins/wp-debug/assets/img/Visa-MasterCard.png';

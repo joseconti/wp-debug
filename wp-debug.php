@@ -155,12 +155,6 @@ function wp_debug_anadir_golger_analytics() {
 }
 add_action( 'wp_footer', 'wp_debug_anadir_golger_analytics' );
 
-/**
- * Modify login title.
- *
- * @param string $login_title Login title.
- * @param string $title       Title.
- */
 function wp_debug_modify_login_title( $login_title, $title ) {
 
 	$login_title = 'Nuevo título de página de login';
@@ -168,11 +162,6 @@ function wp_debug_modify_login_title( $login_title, $title ) {
 }
 add_filter( 'login_title', 'wp_debug_modify_login_title', 10, 2 );
 
-/**
- * Modify login header url.
- *
- * @param string $url Url.
- */
 function wp_debug_update_url( $url ) {
 	$url = 'https://cursojc.com/';
 	return $url;

@@ -16,17 +16,13 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 
-function getBaseUrl() {
-    return window.location.protocol + "//" + window.location.host;
-}
+export default function Edit() {
+	const blockProps = useBlockProps();
+	const imageUrl = imagenVisaMastercard.pluginUrl + 'assets/img/Visa-MasterCard.png';
 
-export default function Save() {
-    const blockProps = useBlockProps.save();
-    const imageUrl = getBaseUrl() + '/wp-content/plugins/wp-debug/assets/img/Visa-MasterCard.png';
-
-    return (
-        <div { ...blockProps }>
-            <img src={ imageUrl } alt="Visa MasterCard" />
-        </div>
-    );
+	return (
+		<div { ...blockProps }>
+			<img src={ imageUrl } alt="Visa MasterCard" />
+		</div>
+	);
 }

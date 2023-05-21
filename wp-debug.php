@@ -221,7 +221,24 @@ function wp_debug_add_custom_role() {
 	// remove_role( 'cpt_perfil' );
 }
 
-function create_block_wp_debug_block_init() {
+function wp_debug_imagen_visa_mastercard_enqueue() {
+	wp_enqueue_script(
+		'imagen-visa-mastercard-script',
+		plugins_url( 'build/index.js', __FILE__ ),
+		array( 'wp-blocks', 'wp-element', 'wp-editor' ),
+		filemtime( plugin_dir_path( __FILE__ ) . 'build/index.js' ),
+		true
+	);
+
+	wp_localize_script(
+		'imagen-visa-mastercard-script',
+		'imagenVisaMastercard',
+		array( 'pluginUrl' => plugins_url( '/', __FILE__ ) )
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'wp_debug_imagen_visa_mastercard_enqueue' );
+
+function wp_debug_create_block_wp_debug_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'create_block_wp_debug_block_init' );
+add_action( 'init', 'wp_debug_create_block_wp_debug_block_init' );

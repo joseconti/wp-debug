@@ -1,0 +1,37 @@
+Instalar NODE.js en el MAC: https://nodejs.org/es/download/
+Instalar composer en el MAC: 
+1.  Abrir una consola y descargar el composer.
+curl -sS https://getcomposer.org/installer | php
+2.  Movemos el fichero al directorio /usr/local/bin
+sudo mv composer.phar /usr/local/bin/
+3.  Cambiamos los permisos
+sudo chmod 755 /usr/local/bin/composer.phar
+4.  Añadimos .profile
+nano ~/.profile
+5.  Añadimos el alias
+alias composer=”php /usr/local/bin/composer.phar”
+6.  Lanzamos en la consola
+source ~/.profile
+7.  Por ultimo lanzamos composer -v
+
+Instalamos WP CLI
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+php wp-cli.phar –info
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+
+Probamos todo:
+composer -v
+node -v
+npm -v
+wp --info
+
+Para ejecutar node para Gutenberg:
+
+Debemos tener el archivo pot dentro del plugin, o no funcionará.
+
+-   Accedemos al directorio del plugin
+-   Ejecutamos:
+npm i react-scripts
+npm install --include=dev wp-scripts
+npm run build

@@ -34,12 +34,20 @@ function wp_debug_init() {
 }
 add_action( 'plugins_loaded', 'wp_debug_init', 11 );
 
+/*
+if ( is_plugin_active( 'js_composer/js_composer.php' ) ) {
+	require_once WPDEBUG_PLUGIN_PATH . 'includes/wp-backery.php';
+}
+*/
+
 require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-global.php';
 // require_once WPDEBUG_PLUGIN_PATH . 'classes/class-wp-debug-users.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/menu/menu.php';
-require_once WPDEBUG_PLUGIN_PATH . 'core/menu/multisite.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/notice/notices.php';
 require_once WPDEBUG_PLUGIN_PATH . 'core/cpt/cpt.php';
+// require_once WPDEBUG_PLUGIN_PATH . 'core/menu/multisite.php';
+// require_once WPDEBUG_PLUGIN_PATH . 'core/shortcode/shortcode.php';
+require_once WPDEBUG_PLUGIN_PATH . 'includes/elementor-load.php';
 
 
 /**

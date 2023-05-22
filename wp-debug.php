@@ -12,7 +12,6 @@
  * Woo: XXXXXXXXXXXXXXXXXXXXXXXXX
  * Text Domain: wp-debug
  * Domain Path: /languages/
- * Network: true
  * Requires PHP: 5.6.0
  * Copyright: (C) 2019 José Conti
  * License: GNU General Public License v3.0
@@ -48,6 +47,8 @@ require_once WPDEBUG_PLUGIN_PATH . 'core/cpt/cpt.php';
 // require_once WPDEBUG_PLUGIN_PATH . 'core/menu/multisite.php';
 // require_once WPDEBUG_PLUGIN_PATH . 'core/shortcode/shortcode.php';
 require_once WPDEBUG_PLUGIN_PATH . 'includes/elementor-load.php';
+require_once WPDEBUG_PLUGIN_PATH . 'includes/action-scheduler/action-scheduler.php';
+require_once WPDEBUG_PLUGIN_PATH . 'includes/acciones-programadas.php';
 
 
 /**

@@ -235,6 +235,7 @@ function wp_debug_imagen_visa_mastercard_enqueue() {
 		'imagenVisaMastercard',
 		array( 'pluginUrl' => plugins_url( '/', __FILE__ ) )
 	);
+	
 }
 add_action( 'enqueue_block_editor_assets', 'wp_debug_imagen_visa_mastercard_enqueue' );
 

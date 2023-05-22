@@ -41,4 +41,5 @@ Crear un bloque:
 
 npm install -g @wordpress/create-block
 cd wp-content/plugins
-npx @wordpress/create-block
+npx @wordpress/create-block nombre-plugin o nombre-bloque
+npm run build

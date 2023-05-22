@@ -3,10 +3,10 @@
   "apiVersion": 2,
   "name": "create-block/wp-debug",
   "version": "0.1.0",
-  "title": "Wp Debug",
+  "title": "Redsys Credit Card Image",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "description": "Añade una imagen de tarjetas de crédito a tu contenido.",
   "supports": {
     "html": false
   },

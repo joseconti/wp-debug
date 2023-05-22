@@ -16,8 +16,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {WPElement} Element to render.
  */
 
-export default function Edit() {
-	const blockProps = useBlockProps();
+export default function Save() {
+	const blockProps = useBlockProps.save();
 	const imageUrl = imagenVisaMastercard.pluginUrl + 'assets/img/Visa-MasterCard.png';
 
 	return (

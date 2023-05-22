@@ -31,7 +31,6 @@ class WP_Debug_Scheduled_Actions {
 		foreach ( $expired as $transient ) {
 			$key = str_replace( '_transient_timeout_', '', $transient );
 			delete_transient( $key );
-			$this->debug( 'Transient deleted: ' . $key );
 		}
 	}
 }

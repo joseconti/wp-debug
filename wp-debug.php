@@ -236,7 +236,7 @@ function wp_debug_imagen_visa_mastercard_enqueue() {
 		'imagenVisaMastercard',
 		array( 'pluginUrl' => plugins_url( '/', __FILE__ ) )
 	);
-	
+
 }
 add_action( 'enqueue_block_editor_assets', 'wp_debug_imagen_visa_mastercard_enqueue' );
 
@@ -244,3 +244,33 @@ function wp_debug_create_block_wp_debug_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'wp_debug_create_block_wp_debug_block_init' );
+
+// Creación de un cron job.
+
+/*
+function wp_debug_cron_schedules( $schedules ) {
+	if ( ! isset( $schedules['5min'] ) ) {
+		$schedules['5min'] = array(
+			'interval' => 5 * 60,
+			'display'  => __( 'Once every 5 minutes', 'wp-debug' ),
+		);
+	}
+	if ( ! isset( $schedules['30min'] ) ) {
+		$schedules['30min'] = array(
+			'interval' => 30 * 60,
+			'display'  => __( 'Once every 30 minutes', 'wp-debug' ),
+		);
+	}
+	return $schedules;
+}
+add_filter( 'cron_schedules', 'wp_debug_cron_schedules' );
+
+if ( ! wp_next_scheduled( 'wp_debug_task_hook' ) ) {
+	wp_schedule_event( time(), '5min', 'wp_debug_task_hook' );
+}
+add_action( 'wp_debug_task_hook', 'wp_debug_task_function' );
+
+function wp_debug_task_function() {
+	esc_html_e( 'I have been called to action. I will do the same next week', 'wp-debug' );
+}
+*/

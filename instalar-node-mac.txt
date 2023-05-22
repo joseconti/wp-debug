@@ -35,3 +35,10 @@ Debemos tener el archivo pot dentro del plugin, o no funcionará.
 npm i react-scripts
 npm install --include=dev wp-scripts
 npm run build
+
+Crear un bloque:
+
+
+npm install -g @wordpress/create-block
+cd wp-content/plugins
+npx @wordpress/create-block

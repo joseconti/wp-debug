@@ -42,19 +42,10 @@ function wp_debug_mi_post_type() {
 		'pages'      => true,
 		'feeds'      => true,
 	);
-	$capabilities = array(
-		'edit_post'          => 'edit_post',
-		'read_post'          => 'read_post',
-		'delete_post'        => 'delete_post',
-		'edit_posts'         => 'edit_post',
-		'edit_others_posts'  => 'edit_others_post',
-		'publish_posts'      => 'publish_post',
-		'read_private_posts' => 'read_private_post',
-	);
-	$args         = array(
-		'label'               => __( 'Post Type', 'wp-debug' ),
-		'description'         => __( 'Post Type Description', 'wp-debug' ),
-		'labels'              => $labels,
+       $args         = array(
+               'label'               => __( 'Post Type', 'wp-debug' ),
+               'description'         => __( 'Post Type Description', 'wp-debug' ),
+               'labels'              => $labels,
 		'supports'            => array( 'title', 'editor' ),
 		'taxonomies'          => array( 'mi_taxonomia' ),
 		'hierarchical'        => false,
@@ -66,12 +57,11 @@ function wp_debug_mi_post_type() {
 		'show_in_nav_menus'   => false,
 		'can_export'          => true,
 		'has_archive'         => false,
-		'exclude_from_search' => true,
-		'publicly_queryable'  => true,
-		'capabilities'        => $capabilities,
-		'rewrite'             => $rewrite,
-		'show_in_rest'        => true,
-	);
+               'exclude_from_search' => true,
+               'publicly_queryable'  => true,
+               'rewrite'             => $rewrite,
+               'show_in_rest'        => true,
+       );
 	register_post_type( 'mi_post_type', $args );
 
 }

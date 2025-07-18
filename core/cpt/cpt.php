@@ -43,13 +43,13 @@ function wp_debug_mi_post_type() {
 		'feeds'      => true,
 	);
 	$capabilities = array(
-		'edit_post'          => 'edit_cpt',
-		'read_post'          => 'read_cpt',
-		'delete_post'        => 'delete_cpt',
-		'edit_posts'         => 'edit_cpt',
-		'edit_others_posts'  => 'edit_others_cpt',
-		'publish_posts'      => 'publish_cpt',
-		'read_private_posts' => 'read_private_cpt',
+		'edit_post'          => 'edit_post',
+		'read_post'          => 'read_post',
+		'delete_post'        => 'delete_post',
+		'edit_posts'         => 'edit_post',
+		'edit_others_posts'  => 'edit_others_post',
+		'publish_posts'      => 'publish_post',
+		'read_private_posts' => 'read_private_post',
 	);
 	$args         = array(
 		'label'               => __( 'Post Type', 'wp-debug' ),
